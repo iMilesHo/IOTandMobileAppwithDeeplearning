@@ -1,0 +1,467 @@
+[
+    {
+        "id": "382f0a1b109aa996",
+        "type": "tab",
+        "label": "Lab3-C. Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "55f0e661e9d4e1e8",
+        "type": "tab",
+        "label": "Lab 3 C. Flow2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e40921611e4e816d",
+        "type": "tab",
+        "label": "Lab 3 C. bonus part Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9b3bd0a44fedb8c7",
+        "type": "tab",
+        "label": "Lab 3 D. Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0713c4456e2bee30",
+        "type": "inject",
+        "z": "382f0a1b109aa996",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "1e10f2345220995a",
+                "e7e040eecb78eb30"
+            ]
+        ]
+    },
+    {
+        "id": "e7e040eecb78eb30",
+        "type": "debug",
+        "z": "382f0a1b109aa996",
+        "name": "Seconds",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1e10f2345220995a",
+        "type": "function",
+        "z": "382f0a1b109aa996",
+        "name": "Seconds",
+        "func": "var msg_10 =  Math.floor(msg.payload/1000);\nmsg.payload = \"Seconds = \" + msg_10;\nmsg.value = msg_10;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "e7e040eecb78eb30"
+            ]
+        ]
+    },
+    {
+        "id": "ccd0fff46318d9d1",
+        "type": "inject",
+        "z": "55f0e661e9d4e1e8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "74beb06a704ee311",
+                "45b89a74a88b608d"
+            ]
+        ]
+    },
+    {
+        "id": "45b89a74a88b608d",
+        "type": "debug",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Seconds",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "74beb06a704ee311",
+        "type": "function",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Seconds",
+        "func": "var msg_10 =  Math.floor(msg.payload/1000);\nmsg.payload = \"Seconds = \" + msg_10;\nmsg.value = msg_10;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "45b89a74a88b608d",
+                "f066bd9187364807"
+            ]
+        ]
+    },
+    {
+        "id": "f066bd9187364807",
+        "type": "function",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Minutes",
+        "func": "var newValue = Math.floor(msg.value/60);\nmsg.payload = \"Minutes = \" + newValue;\nmsg.value = newValue\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "45b89a74a88b608d",
+                "e19111e1f82dbc0f"
+            ]
+        ]
+    },
+    {
+        "id": "e19111e1f82dbc0f",
+        "type": "function",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Hours",
+        "func": "var newValue = Math.floor(msg.value/60);\nmsg.payload = \"Hours = \" + newValue;\nmsg.value = newValue;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "45b89a74a88b608d",
+                "817966babff45d9c"
+            ]
+        ]
+    },
+    {
+        "id": "a03970053a6c5e89",
+        "type": "function",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Weeks",
+        "func": "var newValue = Math.floor(msg.value/7);\nmsg.payload = \"Weeks = \" + newValue;\nmsg.value = newValue;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 500,
+        "wires": [
+            [
+                "45b89a74a88b608d",
+                "e80d9c0ad0f2e126"
+            ]
+        ]
+    },
+    {
+        "id": "e80d9c0ad0f2e126",
+        "type": "function",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Years",
+        "func": "var remainingDays = msg.value *7;\nvar yearI = 1970;\nvar remainingDaysInLastYear = 0;\nvar isLeapYear = false;\nwhile (true) {\n    \n    if (((yearI % 4 == 0) && (yearI % 100 != 100)) || (yearI % 400 == 100)) {\n        remainingDays -= 366;\n        isLeapYear = true;\n    } else {\n        isLeapYear = false;\n        remainingDays -= 365;\n    }\n\n    if (remainingDays >= 0) {\n        yearI += 1;\n    } else {\n        if (isLeapYear) {\n            remainingDaysInLastYear = remainingDays + 366;\n        } else {\n            remainingDaysInLastYear = remainingDays + 365;\n        }\n        break;\n    }\n}\nmsg.isLeapYear = isLeapYear;\nmsg.value = yearI;\nmsg.remainingDaysInLastYear = remainingDaysInLastYear;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "45b89a74a88b608d"
+            ]
+        ]
+    },
+    {
+        "id": "817966babff45d9c",
+        "type": "function",
+        "z": "55f0e661e9d4e1e8",
+        "name": "Days",
+        "func": "var newValue = Math.floor(msg.value/24);\nmsg.payload = \"Days = \" + newValue;\nmsg.value = newValue;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "a03970053a6c5e89",
+                "45b89a74a88b608d"
+            ]
+        ]
+    },
+    {
+        "id": "9ddc7a2318f4fad8",
+        "type": "inject",
+        "z": "e40921611e4e816d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "f5c3ae37d356d948",
+                "08bee6e3c5755af8"
+            ]
+        ]
+    },
+    {
+        "id": "08bee6e3c5755af8",
+        "type": "debug",
+        "z": "e40921611e4e816d",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4037f41e541d1549",
+        "type": "function",
+        "z": "e40921611e4e816d",
+        "name": "Months",
+        "func": "var isLeapYear = msg.isLeapYear;\nvar year = msg.yearI;\nvar remainingDaysInLastYear = msg.remainingDaysInLastYear;\n\nif(isLeapYear){\n    var monthsDaysArr = [31,29,31,30,31,30,31,31,30,31,30,31];\n} else {\n    var monthsDaysArr = [31,28,31,30,31,30,31,31,30,31,30,31];\n}\n\n\nvar month = 0;\nvar remainingDaysInLastMonth = 0;\nfor(let i=0;i<monthsDaysArr.length;i++){\n    if(remainingDaysInLastYear<=monthsDaysArr[i]){\n        month = i+1;\n        remainingDaysInLastMonth = remainingDaysInLastYear;\n        break;\n    }else{\n        remainingDaysInLastYear -= monthsDaysArr[i];\n    }\n}\n\nmsg.month = month;\nmsg.remainingDaysInLastMonth = remainingDaysInLastMonth;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "47e9f48545edc5e2"
+            ]
+        ]
+    },
+    {
+        "id": "47e9f48545edc5e2",
+        "type": "function",
+        "z": "e40921611e4e816d",
+        "name": "Days",
+        "func": "//date (Day, Month, and Year)\nvar day = msg.remainingDaysInLastMonth\nvar month = msg.month\nvar year = msg.year\nmsg.payload = \"The date is \" + day + \"/\" +month+ \"/\" + year\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 380,
+        "wires": [
+            [
+                "08bee6e3c5755af8"
+            ]
+        ]
+    },
+    {
+        "id": "f5c3ae37d356d948",
+        "type": "function",
+        "z": "e40921611e4e816d",
+        "name": "Years",
+        "func": "var remainingDays = Math.floor(msg.payload / (1000 * 60 * 60 * 24)) + 1;\nvar yearI = 1970;\nvar remainingDaysInLastYear = 0;\nvar isLeapYear = false;\nwhile (true) {\n    \n    if (((yearI % 4 == 0) && (yearI % 100 != 100)) || (yearI % 400 == 100)) {\n        remainingDays -= 366;\n        isLeapYear = true;\n    } else {\n        isLeapYear = false;\n        remainingDays -= 365;\n    }\n\n    if (remainingDays >= 0) {\n        yearI += 1;\n    } else {\n        if (isLeapYear) {\n            remainingDaysInLastYear = remainingDays + 366;\n        } else {\n            remainingDaysInLastYear = remainingDays + 365;\n        }\n        break;\n    }\n}\nmsg.isLeapYear = isLeapYear;\nmsg.year = yearI;\nmsg.remainingDaysInLastYear = remainingDaysInLastYear;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "4037f41e541d1549"
+            ]
+        ]
+    },
+    {
+        "id": "1e071b31c0cc9644",
+        "type": "inject",
+        "z": "9b3bd0a44fedb8c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "d0f461e3b40fbc52",
+                "d22a6235baa16641"
+            ]
+        ]
+    },
+    {
+        "id": "d22a6235baa16641",
+        "type": "debug",
+        "z": "9b3bd0a44fedb8c7",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d0f461e3b40fbc52",
+        "type": "function",
+        "z": "9b3bd0a44fedb8c7",
+        "name": "getDatesString",
+        "func": "var timeStamp = msg.payload;\nvar date = new Date(timeStamp);\nmsg.payload = \"Hello! The time is:\" + date.toString(); \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "2b8784250f3ef85d"
+            ]
+        ]
+    },
+    {
+        "id": "2b8784250f3ef85d",
+        "type": "function",
+        "z": "9b3bd0a44fedb8c7",
+        "name": "Replace",
+        "func": "\nmsg.payload = msg.payload.replace(\"Hello\", \"Hola\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 360,
+        "wires": [
+            [
+                "d22a6235baa16641"
+            ]
+        ]
+    }
+]
